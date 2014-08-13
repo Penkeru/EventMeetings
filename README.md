@@ -1,4 +1,4 @@
-Learning Project - By Uriel
+Learning Github Options - by Uriel.
 ===========================
 
 - Javascript Objects.
