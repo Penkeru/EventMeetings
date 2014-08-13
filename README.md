@@ -1,4 +1,4 @@
-EventMeetings
-=============
+Learning Project - By Uriel
+===========================
 
-LittleProject
+- Javascript Objects.
