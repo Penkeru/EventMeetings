@@ -1,4 +1,4 @@
-Learning Github Options - by Uriel.
-===========================
+Learning Project - by Uriel.
+===============================
 
-- Javascript Objects.
+- Added Accordion example from JQuery UI.
