@@ -11,14 +11,13 @@
     <script src="select2.js"></script>
     <script>
         $(function() {
-            $( "#accordion" ).accordion();
+            $( "#accordion" ).accordion({heightStyle: "content"});
 
             var eventNumber = 1;
 
 
             $("#addNewEvent").on('click',function(){
                 $('#accordion').append('<div id="event'+eventNumber+'"> ' +
-                        '<span class="actionName">Image_1:</span>' +
                         '<select id="selectbox" class="selectbox'+eventNumber+'">' +
                             '<option></option>' +
                             '<option value="click">Click</option>'+
@@ -28,7 +27,7 @@
                             '<option value="adLoad">Ad Load</option>'+
                         '</select>'+
                         '<div id="addActionToEvent'+eventNumber+'" class="addAction buttonStyle">Add Action</div>'+
-                    '</div><div></div>').accordion('destroy').accordion();
+                    '</div><div id="event'+eventNumber+'Actions" class="sortable"></div>').accordion( "refresh" );
                 $(".selectbox"+eventNumber).select2(
                         {
                             width: 'wide',
@@ -36,6 +35,12 @@
                             minimumInputLength: 0
                         }
                 );
+                $("#event"+eventNumber+"Actions").sortable();
+                $("#event"+eventNumber+"Actions").disableSelection();
+
+                $("#addActionToEvent"+eventNumber).bind("click",function(){
+                   $(this).parent().next(".sortable").append('<div class="sortableDiv">Action1 : Object1</div>');
+                });
                 eventNumber++;
             });
         });
@@ -44,14 +49,13 @@
 
 </head>
 <body>
-<div id="actionButtons">
-    <div id="addNewEvent" class="buttonStyle">Add New Event</div>
-    <div id="playEvent" class="buttonStyle">Play</div>
-</div>
+    <div id="actionButtons">
+        <div id="addNewEvent" class="buttonStyle">Add New Event</div>
+        <div id="playEvent" class="buttonStyle">Play</div>
+    </div>
 
-<div id="accordion">
-
-</div>
+    <div id="accordion">
+    </div>
 
 
 
